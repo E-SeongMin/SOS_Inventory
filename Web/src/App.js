@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import { firestore } from "./firebase"
+import { useState, useEffect } from "react"
 
 function App() {
+  //set used
+  let [inventoryArray, setInventoryArray] = useState([]);
+
+  function getInventory() {
+    const inventory = firestore.collection('Inventory');
+    inventory.get().then(docs => {
+      docs.forEach(doc => {
+        if (doc.exists) {
+          setInventoryArray(doc.data());
+        }
+      });
+
+    });
+    console.log(inventoryArray);
+  }
+
+  useEffect(() => {
+    getInventory();
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <table>
+        <tr>
+          {inventoryArray.map(ele => (
+            <td>몰라
+          </td>
+          ))}
+        </tr>
+      </table>
+
+
     </div>
   );
 }
+
+
+
+
 
 export default App;
