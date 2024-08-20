@@ -13,11 +13,10 @@
 ## 팀원 구성
 
 <div align="center">
-summervinyl
 
 | **E-SeongMin** | **summervinyl** |
 | :------: |  :------: | :------: | :------: |
-| [<img src="https://avatars.githubusercontent.com/u/106502312?v=4" height=150 width=150> <br/> @E-SeongMin](https://github.com/E-SeongMin) | [<img src="https://avatars.githubusercontent.com/u/112460466?v=4" height=150 width=150> <br/> @summervinyl](https://github.com/summervinyl)
+
 
 </div>
 
