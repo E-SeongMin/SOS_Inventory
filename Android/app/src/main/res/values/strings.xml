@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SOS 재고관리</string>
+
+    -------------------------------------------------------------------
+    
+    <string name="main_button_check_inventory">재고\n파악</string>
+    <string name="main_button_cost_rate_calculation">원가율\n계산</string>
+    <string name="main_button_manage_inventory">재고\n관리</string>
+    
+    -------------------------------------------------------------------
+
+    <string name="check_inventory_title">재고 파악</string>
+    <string name="check_inventory_list_empty_view">현재 저장된 재고 리스트가 없습니다.</string>
+
+    -------------------------------------------------------------------
+
+    <string name="add_inventory_title">재고 추가</string>
+
+    -------------------------------------------------------------------
+
+    <string name="manage_inventory_title">재고 관리</string>
+
+    -------------------------------------------------------------------
+
+    <string name="main_menu_setting">환경설정</string>
+</resources>
