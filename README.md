@@ -27,7 +27,7 @@ summervinyl
 - Back-end : Firebase FireStore
 - 버전 및 이슈관리 : Github
 - 협업 툴 : Figma, Kakao Talk
-- 디자인 : [Figma](https://www.figma.com/file/fAisC2pEKzxTOzet9CfqML/README(oh-my-code)?node-id=39%3A1814)
+- 디자인
 <br>
 
 ## 2. 채택한 개발 기술과 브랜치 전략
