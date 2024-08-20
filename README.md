@@ -23,6 +23,7 @@ summervinyl
 ## 1. 개발 환경
 
 - Front : React
+- Android : Kotlin
 - Back-end : Firebase FireStore
 - 버전 및 이슈관리 : Github
 - 협업 툴 : Figma, Kakao Talk
