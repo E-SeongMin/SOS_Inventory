@@ -13,10 +13,8 @@
 ## 팀원 구성
 
 <div align="center">
-
-| **E-SeongMin** | **summervinyl** |
-| :------: |  :------: | :------: | :------: |
-
+E-SeongMin
+summervinyl
 
 </div>
 
