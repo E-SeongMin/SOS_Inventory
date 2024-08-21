@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    namespace 'com.sos.inventory'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.sos.inventory"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    // MultiDex
+    implementation "androidx.multidex:multidex:$rootProject.multidexVersion"
+
+    // AppCompat
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+
+    // Constraint Layout
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    // KTX
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx"
+
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0' // DrawerLayout
+    implementation 'com.google.android.material:material:1.0.0' // NavigationView
+
+    // RxJava2
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+
+    implementation libs.firebase.firestore
+}

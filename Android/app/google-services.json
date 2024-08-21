@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "561704347140",
+    "firebase_url": "https://sos-inventory-f3b16-default-rtdb.firebaseio.com",
+    "project_id": "sos-inventory-f3b16",
+    "storage_bucket": "sos-inventory-f3b16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561704347140:android:aa3d8e61eac76312f3f751",
+        "android_client_info": {
+          "package_name": "com.sos.inventory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfv-p7Tw5gUD-Vnae9U95min9C0_2ZRGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
