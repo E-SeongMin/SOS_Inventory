@@ -53,10 +53,21 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_ffa500_all_5"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="값 초기화" />
+
+                <Button
                     android:id="@+id/btnSend"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/rectangle_ffa500_all_5"
                     android:gravity="center"
                     android:padding="15dp"

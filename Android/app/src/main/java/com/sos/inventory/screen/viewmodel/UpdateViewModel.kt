@@ -2,6 +2,7 @@ package com.sos.inventory.screen.viewmodel
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.firestore.EventListener
 import com.sos.inventory.data.InventoryData
 import com.sos.inventory.databinding.ActivityMainBinding
 import com.sos.inventory.log.LogUtil

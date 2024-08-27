@@ -11,10 +11,6 @@ import com.sos.inventory.screen.viewholder.InventoryCheckViewHolder
 
 class InventoryCheckAdapter : ListAdapter<InventoryData, InventoryCheckViewHolder>(itemCallBack) {
 
-    init {
-        setHasStableIds(true)
-    }
-
     override fun getItemViewType(position: Int): Int {
         return position
     }
@@ -22,15 +18,17 @@ class InventoryCheckAdapter : ListAdapter<InventoryData, InventoryCheckViewHolde
     companion object {
         val itemCallBack = object : DiffUtil.ItemCallback<InventoryData>() {
             override fun areItemsTheSame(oldItem: InventoryData, newItem: InventoryData): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: InventoryData, newItem: InventoryData): Boolean {
-                return oldItem.cost == newItem.cost ||
-                        oldItem.name == newItem.name ||
-                        oldItem.price == newItem.price ||
-                        oldItem.remainCnt == newItem.remainCnt ||
-                        oldItem.requiredCnt == newItem.requiredCnt
+                return oldItem.id == newItem.id &&
+                        oldItem.cost == newItem.cost &&
+                        oldItem.name == newItem.name &&
+                        oldItem.price == newItem.price &&
+                        oldItem.remainCnt == newItem.remainCnt &&
+                        oldItem.requiredCnt == newItem.requiredCnt &&
+                        oldItem.isCheck == newItem.isCheck
             }
         }
     }
@@ -48,7 +46,37 @@ class InventoryCheckAdapter : ListAdapter<InventoryData, InventoryCheckViewHolde
     }
 
     fun addList(list: MutableList<InventoryData>) {
-        submitList(list)
+        val copyList = mutableListOf<InventoryData>()
+        list.forEachIndexed { index, inventoryData ->
+            copyList.add(InventoryData().apply {
+                this.id = inventoryData.id
+                this.isCheck = inventoryData.isCheck
+                this.cost = inventoryData.cost
+                this.name = inventoryData.name
+                this.price = inventoryData.price
+                this.requiredCnt = inventoryData.requiredCnt
+                this.remainCnt = inventoryData.remainCnt
+            })
+        }
+
+        submitList(copyList)
+    }
+
+    fun clearRemainCount(list: MutableList<InventoryData>) {
+        val copyList = mutableListOf<InventoryData>()
+        list.forEachIndexed { index, inventoryData ->
+            copyList.add(InventoryData().apply {
+                this.id = inventoryData.id
+                this.isCheck = inventoryData.isCheck
+                this.cost = inventoryData.cost
+                this.name = inventoryData.name
+                this.price = inventoryData.price
+                this.requiredCnt = inventoryData.requiredCnt
+                this.remainCnt = 0
+            })
+        }
+
+        submitList(copyList)
     }
 
     fun getSendList(): MutableList<InventoryData> {
