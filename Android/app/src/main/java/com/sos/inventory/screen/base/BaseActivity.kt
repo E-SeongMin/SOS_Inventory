@@ -1,6 +1,7 @@
 package com.sos.inventory.screen.base
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -29,5 +30,9 @@ abstract class BaseActivity<T : ViewDataBinding, R : BaseViewModel> : AppCompatA
 
     open fun initListener() {
 
+    }
+
+    fun showToast(title: String) {
+        Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
     }
 }

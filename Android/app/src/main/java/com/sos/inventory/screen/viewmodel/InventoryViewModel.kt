@@ -49,6 +49,9 @@ class InventoryViewModel : BaseViewModel() {
 
     fun sendInventoryCheckList(sendList: MutableList<InventoryData>) {
         LogUtil.d("InventoryViewModel sendInventoryCheckList")
+        sendList.forEach {
+            it.isCheck = false
+        }
         repository.sendInventoryRemainCountList(sendList)
     }
 
@@ -62,6 +65,13 @@ class InventoryViewModel : BaseViewModel() {
             it.isCheck = false
         }
     }
+
+    fun setAllCheck() {
+        inventoryList.value?.forEach {
+            it.isCheck = true
+        }
+    }
+
 
     fun checkAllItemChecking(): Int {
         inventoryList.value?.forEach {

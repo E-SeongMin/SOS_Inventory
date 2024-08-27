@@ -12,6 +12,7 @@ import com.sos.inventory.screen.adapter.InventoryManageAdapter
 import com.sos.inventory.screen.base.BaseActivity
 import com.sos.inventory.screen.viewmodel.InventoryViewModel
 import com.sos.inventory.util.ActivityUtil
+import dagger.hilt.android.AndroidEntryPoint
 
 class InventoryManageActivity : BaseActivity<ActivityManageInventoryBinding, InventoryViewModel>() {
 

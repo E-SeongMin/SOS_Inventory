@@ -11,6 +11,11 @@
 
     <string name="check_inventory_title">재고 파악</string>
     <string name="check_inventory_list_empty_view">현재 저장된 재고 리스트가 없습니다.</string>
+    <string name="check_inventory_list_remain_count_clear">수량이 초기화 되었습니다.</string>
+    <string name="check_inventory_list_remain_all_check">전체 체크가 되었습니다.</string>
+    <string name="check_inventory_list_is_not_checked">체크되지 않은 값이 있습니다.</string>
+    <string name="check_inventory_list_success">서버로 값이 보내졌습니다.</string>
+
 
     -------------------------------------------------------------------
 
