@@ -26,10 +26,13 @@ class InventoryCheckActivity : BaseActivity<ActivityCheckInventoryBinding, Inven
         InventoryCheckAdapter()
     }
 
+    init {
+        viewModel.clearCheck()
+    }
+
     override fun init() {
         binding.apply {
             titleBar.tvTitle.text = String.format(R.string.check_inventory_title.toResString)
-            viewModel.clearCheck()
             viewModel.getInventoryList().observe(this@InventoryCheckActivity, Observer {
                 if (it.isNullOrEmpty()) {
                     tvEmptyView.toVisible()
@@ -56,8 +59,7 @@ class InventoryCheckActivity : BaseActivity<ActivityCheckInventoryBinding, Inven
                     if (position == 0) {
                         showToast(String.format(R.string.check_inventory_list_success.toResString))
                         CoroutineScope(Dispatchers.IO).launch {
-                            viewModel.sendInventoryCheckList(adatper.
-                            getSendList())
+                            viewModel.sendInventoryCheckList(adatper.getSendList())
                         }
                         finish()
                     } else {
@@ -72,6 +74,16 @@ class InventoryCheckActivity : BaseActivity<ActivityCheckInventoryBinding, Inven
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModel.getInventoryList().value?.let {
                         adatper.clearRemainCount(it)
+                    }
+                }
+            }
+
+            btnAllCheck.setOnClickListener {
+                viewModel.setAllCheck()
+                showToast(String.format(R.string.check_inventory_list_remain_all_check.toResString))
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.getInventoryList().value?.let {
+                        adatper.setAllCheck(it)
                     }
                 }
             }

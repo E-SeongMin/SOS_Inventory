@@ -79,6 +79,24 @@ class InventoryCheckAdapter : ListAdapter<InventoryData, InventoryCheckViewHolde
         submitList(copyList)
     }
 
+    fun setAllCheck(list: MutableList<InventoryData>) {
+        val copyList = mutableListOf<InventoryData>()
+        list.forEachIndexed { index, inventoryData ->
+            copyList.add(InventoryData().apply {
+                this.id = inventoryData.id
+                this.isCheck = true
+                this.cost = inventoryData.cost
+                this.name = inventoryData.name
+                this.price = inventoryData.price
+                this.requiredCnt = inventoryData.requiredCnt
+                this.remainCnt = inventoryData.remainCnt
+            })
+        }
+
+        submitList(copyList)
+    }
+
+
     fun getSendList(): MutableList<InventoryData> {
         return currentList
     }

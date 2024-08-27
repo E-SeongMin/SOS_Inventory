@@ -32,6 +32,8 @@ class InventoryCheckViewHolder(private val binding: ItemInventoryCheckViewHolder
                 }
             }
 
+            btnCheck.isSelected = item.isCheck
+
             btnCheck.setOnClickListener {
                 if (btnCheck.isSelected) {
                     item.isCheck = false
