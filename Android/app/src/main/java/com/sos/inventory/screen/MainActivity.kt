@@ -10,7 +10,7 @@ import com.sos.inventory.databinding.ActivityMainBinding
 import com.sos.inventory.screen.base.BaseActivity
 import com.sos.inventory.screen.viewmodel.MainViewModel
 import com.sos.inventory.util.ActivityUtil
-
+import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), NavigationView.OnNavigationItemSelectedListener {
 
     override val layoutResID: Int

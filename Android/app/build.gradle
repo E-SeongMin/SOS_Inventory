@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     namespace 'com.sos.inventory'
@@ -38,6 +39,9 @@ android {
     dataBinding {
         enabled = true
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
@@ -68,5 +72,10 @@ dependencies {
     // RxJava2
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
 
+    // FireStore
     implementation libs.firebase.firestore
+
+    // Hilt
+    implementation 'com.google.dagger:hilt-android:2.44'
+    kapt 'com.google.dagger:hilt-compiler:2.44'
 }

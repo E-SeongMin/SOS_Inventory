@@ -13,6 +13,7 @@ import com.sos.inventory.log.LogUtil
 import com.sos.inventory.screen.adapter.InventoryCheckAdapter
 import com.sos.inventory.screen.base.BaseActivity
 import com.sos.inventory.screen.viewmodel.InventoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 class InventoryAddActivity : BaseActivity<ActivityAddInventoryBinding, InventoryViewModel>() {
 

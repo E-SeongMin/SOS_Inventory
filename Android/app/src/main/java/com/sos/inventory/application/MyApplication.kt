@@ -7,6 +7,7 @@ import android.content.res.Resources
 import android.os.Bundle
 import androidx.multidex.MultiDexApplication
 import com.sos.inventory.log.Timber.Timber
+import dagger.hilt.android.HiltAndroidApp
 
 class MyApplication: MultiDexApplication() {
 

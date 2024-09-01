@@ -10,6 +10,7 @@ import com.sos.inventory.extension.toVisible
 import com.sos.inventory.screen.adapter.InventoryCheckAdapter
 import com.sos.inventory.screen.base.BaseActivity
 import com.sos.inventory.screen.viewmodel.InventoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,10 +26,13 @@ class InventoryCheckActivity : BaseActivity<ActivityCheckInventoryBinding, Inven
         InventoryCheckAdapter()
     }
 
+    init {
+        viewModel.clearCheck()
+    }
+
     override fun init() {
         binding.apply {
             titleBar.tvTitle.text = String.format(R.string.check_inventory_title.toResString)
-            viewModel.clearCheck()
             viewModel.getInventoryList().observe(this@InventoryCheckActivity, Observer {
                 if (it.isNullOrEmpty()) {
                     tvEmptyView.toVisible()
@@ -53,12 +57,33 @@ class InventoryCheckActivity : BaseActivity<ActivityCheckInventoryBinding, Inven
             btnSend.setOnClickListener {
                 viewModel.checkAllItemChecking().let { position ->
                     if (position == 0) {
+                        showToast(String.format(R.string.check_inventory_list_success.toResString))
                         CoroutineScope(Dispatchers.IO).launch {
                             viewModel.sendInventoryCheckList(adatper.getSendList())
                         }
                         finish()
                     } else {
+                        showToast(String.format(R.string.check_inventory_list_is_not_checked.toResString))
                         recylerView.scrollToPosition(position-1)
+                    }
+                }
+            }
+
+            btnClear.setOnClickListener {
+                showToast(String.format(R.string.check_inventory_list_remain_count_clear.toResString))
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.getInventoryList().value?.let {
+                        adatper.clearRemainCount(it)
+                    }
+                }
+            }
+
+            btnAllCheck.setOnClickListener {
+                viewModel.setAllCheck()
+                showToast(String.format(R.string.check_inventory_list_remain_all_check.toResString))
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.getInventoryList().value?.let {
+                        adatper.setAllCheck(it)
                     }
                 }
             }
