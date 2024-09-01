@@ -3,46 +3,65 @@ import { firestore } from "./firebase"
 import { useState, useEffect } from "react"
 
 function App() {
-  //set used
-  let [inventoryArray, setInventoryArray] = useState([]);
+  //let [inventoryList, setInventoryList] = useState([{ id: '제발', name: '나와라' }]);
+  let inventoryList = [];
 
-  function getInventory() {
-    const inventory = firestore.collection('Inventory');
-    inventory.get().then(docs => {
+  function getData() {
+    let data = firestore.collection('Inventory');
+    data.get().then((docs) => {
       docs.forEach(doc => {
+        //console.log(doc.id);
         if (doc.exists) {
-          setInventoryArray(doc.data());
-        }
-      });
+          let inventoryList = [{ ...inventoryList, ...doc.data() }];
+          //let copy = [...inventoryList, { id: doc.data().id, name: doc.data().name, remainCnt: doc.data().remainCnt }]
+          //setInventoryList(copy);
+          console.log(inventoryList);
 
-    });
-    console.log(inventoryArray);
+          // setInventoryList([...inventoryList, {
+          //   id: doc.data().id,
+          //   name: doc.data().name,
+          //   remainCnt: doc.data().remainCnt,
+          // }]);
+
+          // let copy = {
+          //   id: doc.data().id,
+          //   name: doc.data().name
+          // }
+
+
+          // let ascendingCopy = copy.sort((a, b) => a.id - b.id);
+          // setInventoryList([copy, ...inventoryList]);
+          //console.log(ascendingCopy);
+          //console.log(copy[0].id);
+
+          //setInventoryList([{id : doc.data().id, name: doc.data().name}, ...inventoryList])
+          // setInventoryList([{ ...inventoryList, ...doc.data() }])
+
+          // console.log(inventoryList);
+        }
+      })
+    })
   }
 
   useEffect(() => {
-    getInventory();
+    getData();
   }, []);
 
-
   return (
-    <div className="App">
 
-      <table>
-        <tr>
-          {inventoryArray.map(ele => (
-            <td>몰라
-          </td>
-          ))}
-        </tr>
-      </table>
-
-
+    <div>
+      <div className='App'>
+        {
+          inventoryList.map(ele => {
+            return (
+              <p>{ele.id}</p>
+            )
+          })
+        }
+      </div>
     </div>
   );
 }
-
-
-
 
 
 export default App;
