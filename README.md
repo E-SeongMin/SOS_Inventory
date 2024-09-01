@@ -59,4 +59,3 @@ summervinyl
 ## 4. 프로젝트 회고록
 - summer
       1. 2024-09-01 : 웹 1차 배포에 성공했다. firebase를 처음 사용하느라 list를 가져와서 저장하는 데에 진을 뺐지만, 폭풍 서치 끝에 몇 시간만에 성공했다. 😂🥲
-      화이팅! file:///C:/Users/ASUS/Downloads/MicrosoftWindows.Client.CBS_cw5n1h2txyewy!InputApp/StickergiantLetsGoGIF.gif
